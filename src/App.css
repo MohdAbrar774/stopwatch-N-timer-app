@@ -189,11 +189,10 @@ h1 {
 
 .panel-grid {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   max-width: 900px;
-  margin: 0 auto;
-  justify-items: stretchlate-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
+
 }
 
 .card {
@@ -400,7 +399,6 @@ panel-grid {
     max-width: 100%;
   }
 
-  .
   .display {
     padding: 32px 16px;
   }
