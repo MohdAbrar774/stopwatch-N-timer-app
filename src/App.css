@@ -192,7 +192,7 @@ h1 {
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   max-width: 900px;
-
+  margin: 0 auto;
 }
 
 .card {
@@ -303,7 +303,8 @@ html[data-theme="dark"] .status-timer {
 }
 
 .app-shell.dark .button.primary {
- 
+  box-shadow: 0 4px 12px rgba(63, 185, 80, 0.25);
+}
 
 html[data-theme="dark"] .button.primary {
   box-shadow: 0 4px 12px rgba(63, 185, 80, 0.25);
@@ -311,7 +312,6 @@ html[data-theme="dark"] .button.primary {
 
 html[data-theme="dark"] .button.primary:hover {
   background: #2ea043;
-} box-shadow: 0 4px 12px rgba(63, 185, 80, 0.25);
 }
 
 .app-shell.dark .button.primary:hover {
@@ -354,6 +354,47 @@ html[data-theme="dark"] .button.primary:hover {
   line-height: 1.7;
 }
 
+.laps-list {
+  margin-top: 12px;
+}
+
+.laps-list h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.laps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--surface-soft);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.lap-number {
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
+.lap-time {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .panel-hidden {
   display: none;
 }
@@ -394,7 +435,7 @@ html[data-theme="dark"] .button.primary:hover {
     height: 36px;
     font-size: 1rem;
   }
-panel-grid {
+  panel-grid {
     grid-template-columns: 1fr;
     max-width: 100%;
   }

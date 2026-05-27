@@ -23,6 +23,7 @@ function App() {
 
   const [stopwatchMs, setStopwatchMs] = useState(0)
   const [stopwatchRunning, setStopwatchRunning] = useState(false)
+  const [laps, setLaps] = useState([])
 
   const [timerMinutes, setTimerMinutes] = useState('0')
   const [timerSeconds, setTimerSeconds] = useState('30')
@@ -118,10 +119,6 @@ function App() {
         <div>
           <p className="eyebrow">React Stopwatch & Timer</p>
           <h1>Time control made simple</h1>
-          <p className="intro">
-            Manage a stopwatch and a custom timer with clean controls, responsive styling,
-            and instant feedback.
-          </p>
         </div>
         <div className="header-controls">
           <button
@@ -171,13 +168,40 @@ function App() {
             >
               {stopwatchRunning ? 'Pause' : stopwatchMs === 0 ? 'Start' : 'Resume'}
             </button>
+            <button
+              type="button"
+              className="button secondary"
+              onClick={() => {
+                if (stopwatchMs > 0) {
+                  setLaps([...laps, stopwatchMs])
+                }
+              }}
+              disabled={stopwatchMs === 0 || !stopwatchRunning}
+            >
+              Lap
+            </button>
             <button type="button" className="button secondary" onClick={() => {
               setStopwatchRunning(false)
               setStopwatchMs(0)
+              setLaps([])
             }}>
               Reset
             </button>
           </div>
+
+          {laps.length > 0 && (
+            <div className="laps-list">
+              <h3>Laps</h3>
+              <div className="laps">
+                {laps.map((lap, index) => (
+                  <div key={index} className="lap-item">
+                    <span className="lap-number">Lap {index + 1}</span>
+                    <span className="lap-time">{formatStopwatch(lap)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </article>
 
         <article className={`panel card ${activeView !== 'timer' ? 'panel-hidden' : ''}`}>
